@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 @SpringBootApplication
 @RestController
@@ -30,7 +32,8 @@ public class CloudLessonApplication {
     }
 
     @GetMapping("/list")
-    public String List_Collection() {
+    public String listCollection() {
+        Collections.sort(this.names);
         return String.format("Hello %s!", this.names.toString()
                 .replace("[", "")
                 .replace("]", "")
